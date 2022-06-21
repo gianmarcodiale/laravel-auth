@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Auth::routes();
+
+// Create route middleware for admin
+Route::middleware('auth')
+    ->prefix('admin')
+    ->namespace('Admin')
+    ->name('admin.')
+    ->group(function () {
+        // Admin dashboard
+        Route::get('/', 'HomeController@index')->name('dashboard');
+    });
+
+// fallback route MUST be inserted at the end of web.php
+Route::get("{any?}", function() {
+    return view('guest.home');
+})->where('any', '.*');
