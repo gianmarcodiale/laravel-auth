@@ -28,6 +28,8 @@ Route::middleware('auth')
     ->group(function () {
         // Admin dashboard
         Route::get('/', 'HomeController@index')->name('dashboard');
+        // Admin posts
+        Route::resource('posts', 'PostController');
     });
 
 // fallback route MUST be inserted at the end of web.php

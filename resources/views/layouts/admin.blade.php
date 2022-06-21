@@ -54,7 +54,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center" href="#">
+                                <a class="nav-link d-flex align-items-center" href="{{route('admin.posts.index')}}">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                         fill="currentColor" class="bi bi-newspaper" viewBox="0 0 16 16">
                                         <path
