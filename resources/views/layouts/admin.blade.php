@@ -16,6 +16,9 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
@@ -24,7 +27,8 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-dark sticky-top bg-secondary flex-md-nowrap p-0 shadow">
-            <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3 text-uppercase font-weight-bold" href="#">boolpress</a>
+            <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3 font-weight-bold"
+                href="#">Boolpress</a>
             <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse"
                 data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -32,7 +36,7 @@
             </button>
             <ul class="navbar-nav px-3">
                 <li class="nav-item text-nowrap">
-                    <a class="nav-link btn btn-danger p-1 text-white" href="#">Sign out</a>
+                    <a class="nav-link btn btn-danger p-1 text-white" href="">Sign out</a>
                 </li>
             </ul>
         </nav>
@@ -43,7 +47,7 @@
                     <div class="sidebar-sticky pt-3">
                         <ul class="nav flex-column">
                             <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center" href="#">
+                                <a class="nav-link d-flex align-items-center" href="{{ route('admin.dashboard') }}">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                         fill="currentColor" class="bi bi-house" viewBox="0 0 16 16" class="pe-2">
                                         <path fill-rule="evenodd"
@@ -54,7 +58,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center" href="{{route('admin.posts.index')}}">
+                                <a class="nav-link d-flex align-items-center" href="{{ route('admin.posts.index') }}">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                         fill="currentColor" class="bi bi-newspaper" viewBox="0 0 16 16">
                                         <path
