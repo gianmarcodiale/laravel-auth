@@ -45,6 +45,13 @@ body {
     padding-top: 0.5rem;
     overflow-x: hidden;
     overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    li {
+        &:hover a {
+            background-color: $secondary;
+            transition: all 0.5s;
+            color: white!important;
+        }
+    }
 }
 
 @supports ((position: -webkit-sticky) or (position: sticky)) {

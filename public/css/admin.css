@@ -9305,6 +9305,11 @@ body {
   overflow-x: hidden;
   overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
 }
+.sidebar-sticky li:hover a {
+  background-color: #6c757d;
+  transition: all 0.5s;
+  color: white !important;
+}
 
 @supports ((position: -webkit-sticky) or (position: sticky)) {
   .sidebar-sticky {
