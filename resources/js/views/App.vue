@@ -1,12 +1,11 @@
 <template>
-    <div id="root" class="text-center">
-        <h1 class="mt-5">Work in progress</h1>
-    </div>
+    <work-in-progress></work-in-progress>
 </template>
 
 <script>
+import WorkInProgress from '../components/WorkInProgress.vue';
 export default {
     name: 'App',
-    components: {}
+    components: {WorkInProgress}
 }
 </script>
