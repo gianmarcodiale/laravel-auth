@@ -21,7 +21,11 @@
                         <td>{{ $post->author }}</td>
                         <td><img width="120" src="{{ $post->cover_image }}" alt="cover image"></td>
                         <td>{{ $post->slug }}</td>
-                        <td>View - Edit - Delete</td>
+                        <td>
+                            <a class="btn btn-primary btn-sm text-white"
+                                href="{{ route('admin.posts.show', $post) }}">View</a>
+                            <a class="btn btn-secondary btn-sm text-white" href="{{ route('admin.posts.edit', $post) }}">Edit</a>
+                        </td>
                     </tr>
                 @empty
                     <tr>

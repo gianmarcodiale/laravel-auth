@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Post;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
 {
@@ -33,10 +33,10 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\PostRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
         //
     }
@@ -49,7 +49,8 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        // Return the single post by clicking on view btn
+        return view('admin.posts.show', compact('post'));
     }
 
     /**
@@ -60,19 +61,31 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        // Return view with the form for editing the single post
+        return view('admin.posts.edit', compact('post'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\PostRequest $request
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(PostRequest $request, Post $post)
     {
-        //
+        // Return the updated data from the single post
+        // Create the variable with the validated data
+        $validated_data = $request->validated();
+        // Generate slug with the post title by defining a function for the Str in the
+        $slug = Post::generateSlug($request->title);
+        // dd($slug);
+        // Save the slug into the slug param
+        $val_data['slug'] = $slug;
+        // Create instance
+        $post->update($val_data);
+        // Redirect to a GET route
+        return redirect()->route('admin.posts.index')->with('message', 'Post updated succesfully');
     }
 
     /**
