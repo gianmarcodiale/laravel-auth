@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row row-cols-2 border border-secondary rounded p-4">
             <div class="col">
-                <img src="{{ $post->cover_image }}" alt="">
+                <img style="max-width: 500px" src="{{ $post->cover_image }}" alt="">
             </div>
             <div class="col">
                 <div class="metadata">

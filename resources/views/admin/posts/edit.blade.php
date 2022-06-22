@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="container">
+    <div class="container mb-5">
         <h2>Edit {{ $post->title }}</h2>
 
         {{-- Display error message in case of invalid data --}}

@@ -15,6 +15,7 @@
                         {{ __('You are logged in!') }}
                     </div>
                 </div>
+                <h2 class="text-center mt-5">Welcome to BoolPress Administration Panel</h2>
             </div>
         </div>
     </div>
