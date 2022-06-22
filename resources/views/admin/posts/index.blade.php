@@ -2,7 +2,8 @@
 
 @section('content')
     <div class="container">
-
+        <h2>Posts</h2>
+        <hr>
         {{-- Display redirection status --}}
         @if (session('message'))
             <div class="alert alert-success">

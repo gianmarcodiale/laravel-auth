@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="container">
+        <h2 class="text-center">Dashboard</h2>
         <div class="row justify-content-center mt-5">
             <div class="col-md-8">
                 <div class="card">
