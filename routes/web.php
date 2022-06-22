@@ -29,7 +29,9 @@ Route::middleware('auth')
         // Admin dashboard
         Route::get('/', 'HomeController@index')->name('dashboard');
         // Admin posts
-        Route::resource('posts', 'PostController');
+        Route::resource('posts', 'PostController')->parameters([
+            'posts' => 'post:slug'
+        ]);
     });
 
 // fallback route MUST be inserted at the end of web.php
