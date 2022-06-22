@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 class Post extends Model
 {
     // Create the fillable date for the model
-
+    protected $fillable = ['title', 'author', 'content', 'cover_image', 'slug'];
     // Create a static function for slug generation
     /**
      * # Generate a slug from post title

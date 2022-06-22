@@ -2,6 +2,14 @@
 
 @section('content')
     <div class="container">
+
+        {{-- Display redirection status --}}
+        @if (session('message'))
+            <div class="alert alert-success">
+                {{ session('message') }}
+            </div>
+        @endif
+
         <table class="table table-striped table-inverse table-responsive">
             <thead class="thead-inverse">
                 <tr>
@@ -24,7 +32,8 @@
                         <td>
                             <a class="btn btn-primary btn-sm text-white"
                                 href="{{ route('admin.posts.show', $post) }}">View</a>
-                            <a class="btn btn-secondary btn-sm text-white" href="{{ route('admin.posts.edit', $post) }}">Edit</a>
+                            <a class="btn btn-secondary btn-sm text-white"
+                                href="{{ route('admin.posts.edit', $post) }}">Edit</a>
                         </td>
                     </tr>
                 @empty
