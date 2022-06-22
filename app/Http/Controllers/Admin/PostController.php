@@ -27,7 +27,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        // Return view with form for creating a new post
+        return view('admin.posts.create');
     }
 
     /**
@@ -38,7 +39,18 @@ class PostController extends Controller
      */
     public function store(PostRequest $request)
     {
-        //
+        // Store the newly created post into the database
+        // Validate data
+        $validated_data = $request->validated();
+        // Generate slug for new post
+        $slug = Post::generateSlug($request->title);
+        // Save the validated slug into the slug param
+        $validated_data['slug'] = $slug;
+        // Create the new post
+        Post::create($validated_data);
+        // Redirect to GET route
+        return redirect()->route('admin.posts.index')->with('message', 'Post Created Succesfully');
+
     }
 
     /**
@@ -80,12 +92,12 @@ class PostController extends Controller
         // Generate slug with the post title by defining a function for the Str in the
         $slug = Post::generateSlug($request->title);
         // dd($slug);
-        // Save the slug into the slug param
+        // Save the validated slug into the slug param
         $validated_data['slug'] = $slug;
         // Create instance
         $post->update($validated_data);
         // Redirect to a GET route
-        return redirect()->route('admin.posts.index')->with('message', 'Post updated succesfully');
+        return redirect()->route('admin.posts.index')->with('message', 'Post Updated Succesfully');
     }
 
     /**
