@@ -81,9 +81,9 @@ class PostController extends Controller
         $slug = Post::generateSlug($request->title);
         // dd($slug);
         // Save the slug into the slug param
-        $val_data['slug'] = $slug;
+        $validated_data['slug'] = $slug;
         // Create instance
-        $post->update($val_data);
+        $post->update($validated_data);
         // Redirect to a GET route
         return redirect()->route('admin.posts.index')->with('message', 'Post updated succesfully');
     }
