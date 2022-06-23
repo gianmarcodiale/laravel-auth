@@ -22,8 +22,8 @@
             {{-- Title --}}
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
-                <input type="text" name="title" id="title" class="form-control" placeholder=""
-                    aria-describedby="titleHelp" value="{{ old('title', $post->title) }}" class="@error('title') is-invalid @enderror">
+                <input type="text" name="title" id="title" class="form-control @error('title') is-invalid @enderror" placeholder=""
+                    aria-describedby="titleHelp" value="{{ old('title', $post->title) }}">
                 <small id="titleHelp" class="text-muted">Edit title (max. 150 characters)</small>
                 {{-- Display specific error --}}
                 @error('title')
@@ -34,8 +34,8 @@
             {{-- Author --}}
             <div class="mb-3">
                 <label for="author" class="form-label">Author</label>
-                <input type="text" name="author" id="author" class="form-control" placeholder=""
-                    aria-describedby="authorHelp" value="{{ old('author', $post->author) }}" class="@error('author') is-invalid @enderror">
+                <input type="text" name="author" id="author" class="form-control @error('author') is-invalid @enderror" placeholder=""
+                    aria-describedby="authorHelp" value="{{ old('author', $post->author) }}">
                 <small id="authorHelp" class="text-muted">Edit author (max. 40 characters)</small>
                 {{-- Display specific error --}}
                 @error('author')
