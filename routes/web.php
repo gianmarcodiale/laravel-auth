@@ -32,7 +32,13 @@ Route::middleware('auth')
         Route::resource('posts', 'PostController')->parameters([
             'posts' => 'post:slug'
         ]);
+        // Create route for categories
+        Route::resource('categories', 'CategoryController')->parameters([
+            'categories' => 'category:slug'
+        ])->except(['show', 'create', 'edit']);
     });
+
+
 
 // fallback route MUST be inserted at the end of web.php
 Route::get("{any?}", function() {

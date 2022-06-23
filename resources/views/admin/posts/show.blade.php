@@ -9,6 +9,9 @@
             <div class="col">
                 <div class="metadata">
                     <h3>TITLE: {{ $post->title }}</h3>
+                    <div class="metadata">
+                        CATEGORY: {{$post->category ? $post->category->name : 'N/A'}}
+                    </div>
                     <h4>AUTHOR: {{ $post->author }}</h4>
                     <p>{{ $post->content }}</p>
                     <small>{{ $post->slug }}</small>

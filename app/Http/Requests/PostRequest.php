@@ -26,6 +26,7 @@ class PostRequest extends FormRequest
     {
         return [
             'title' => ['required', Rule::unique('posts')->ignore($this->post), 'max:150'],
+            'category_id' => ['nullable', 'exists:categories,id'], // Check if the category id exists // DO NOT INSERT SPACES
             'author' => ['nullable'],
             'content' => ['nullable'],
             'cover_image' => ['nullable']

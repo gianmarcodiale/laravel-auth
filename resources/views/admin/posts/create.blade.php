@@ -21,25 +21,18 @@
             {{-- Title --}}
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
-                <input type="text" name="title" id="title" class="form-control" placeholder=""
-                    aria-describedby="titleHelp" value="{{ old('title') }}" class="@error('title') is-invalid @enderror">
+                <input type="text" name="title" id="title" class="form-control @error('title') is-invalid @enderror"
+                    placeholder="" aria-describedby="titleHelp" value="{{ old('title') }}">
                 <small id="titleHelp" class="text-muted">Edit title (max. 150 characters)</small>
-                {{-- Display specific error --}}
-                @error('title')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                @enderror
             </div>
 
             {{-- Author --}}
             <div class="mb-3">
                 <label for="author" class="form-label">Author</label>
-                <input type="text" name="author" id="author" class="form-control" placeholder=""
-                    aria-describedby="authorHelp" value="{{ old('author') }}" class="@error('author') is-invalid @enderror">
+                <input type="text" name="author" id="author"
+                    class="form-control @error('author') is-invalid @enderror" placeholder="" aria-describedby="authorHelp"
+                    value="{{ old('author') }}">
                 <small id="authorHelp" class="text-muted">Edit author (max. 40 characters)</small>
-                {{-- Display specific error --}}
-                @error('author')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                @enderror
             </div>
 
             {{-- Content --}}
@@ -57,6 +50,17 @@
                 <input type="text" name="cover_image" id="cover_image" class="form-control" placeholder=""
                     aria-describedby="coverImageHelp" value="{{ old('cover_image') }}">
                 <small id="coverImageHelp" class="text-muted">Edit cover image (max. 150 characters)</small>
+            </div>
+
+            {{-- Form select for categories --}}
+            <div class="mb-3">
+                <label for="category_id" class="form-label">Categories</label>
+                <select class="form-control @error('category_id') is-invalid @enderror" name="category_id" id="category_id">
+                    <option value="">Select Category</option>
+                    @foreach ($categories as $category)
+                        <option value="{{ $category }}">{{ $category->name }}</option>
+                    @endforeach
+                </select>
             </div>
 
             {{-- Submit button --}}

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Post;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PostRequest;
+use App\Models\Category;
 
 class PostController extends Controller
 {
@@ -27,8 +28,11 @@ class PostController extends Controller
      */
     public function create()
     {
+        // Pass all the category list to the create function in the PostController
+        $categories = Category::all();
+        // dd($categories);
         // Return view with form for creating a new post
-        return view('admin.posts.create');
+        return view('admin.posts.create', compact('categories'));
     }
 
     /**
@@ -39,13 +43,16 @@ class PostController extends Controller
      */
     public function store(PostRequest $request)
     {
+        //dd($request->all());
         // Store the newly created post into the database
         // Validate data
         $validated_data = $request->validated();
+        // Verify if inserted id exist in the category list -> check PostRequest.php
         // Generate slug for new post
         $slug = Post::generateSlug($request->title);
         // Save the validated slug into the slug param
         $validated_data['slug'] = $slug;
+        //dd($validated_data);
         // Create the new post
         Post::create($validated_data);
         // Redirect to GET route
@@ -73,8 +80,10 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
+        // Pass all the category list to the create function in the PostController
+        $categories = Category::all();
         // Return view with the form for editing the single post
-        return view('admin.posts.edit', compact('post'));
+        return view('admin.posts.edit', compact('post', 'categories'));
     }
 
     /**
